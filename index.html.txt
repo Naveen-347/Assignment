@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Login Demo</title>
+
+  <!--
+    Multi-line comment:
+    CSS is now in style.css and included via a <link> tag.
+    JavaScript is in script.js and included via a <script> tag at the end.
+  -->
+  style.css
+</head>
+<body>
+  <h1>Login Form (Alert on Click)</h1>
+
+  <!-- Single-line comment: Username field -->
+  <div class="field">
+    <label for="textboxusername">Username</label>
+    <input type="text" id="textboxusername" placeholder="Enter username" />
+  </div>
+
+  <!-- Single-line comment: Password field -->
+  <div class="field">
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter password" />
+  </div>
+
+  <!-- Button that triggers alert -->
+  <button id="loginBtn">Login</button>
+
+  <p class="note">
+    Open your browser console (F12) to see logs for var/let/const, scopes, and identifiers.
+  </p>
+
+  <!-- Include external JavaScript file -->
+  <script src="script</body>
+</html>

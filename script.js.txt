@@ -1,0 +1,123 @@
+
+
+//Hook up button and show alert =====
+document.getElementById("loginBtn").addEventListener("click", function () {
+  // Single-line comment: Read values and show alert.
+  const username = document.getElementById("textboxusername").value;
+  const password = document.getElementById("password").value;
+
+  alert(`Button clicked!\nUsername: ${username}\nPassword: ${password ? "******" : "(empty)"}`);
+});
+
+
+var oldStyle = "I am var";         
+let modern = "I am let";           
+const fixed = "I am const";        
+
+console.log("Section 1:");
+console.log("var oldStyle:", oldStyle);
+console.log("let modern:", modern);
+console.log("const fixed:", fixed);
+
+// Reassigning let
+modern = "I was reassigned (let allows reassignment)";
+console.log("\nSection 2:");
+console.log("Reassigned let modern:", modern);
+
+//Attempting to reassign const 
+console.log("\nSection 3:");
+try {
+  // Uncomment to see a TypeError (without try/catch it would stop execution):
+  // fixed = "Trying to change const";
+  Object.defineProperty(window, "fixed", { value: "Trying to change const" });
+} catch (err) {
+  console.log("Error when attempting to reassign const:", err.message);
+}
+
+//Block scope vs Function scope
+console.log("\nSection 4: Block vs Function Scope");
+
+// Block scope with let/const
+{
+  let blockLet = "I exist only inside this block";
+  const blockConst = "Me too, block-scoped";
+  console.log("Inside block:", blockLet, "|", blockConst);
+}
+// console.log(blockLet);   // ReferenceError if uncommented
+// console.log(blockConst); // ReferenceError if uncommented
+
+// var is function-scoped (or global-scoped if not in a function)
+{
+  var blockVar = "I leak out of the block (function or global scope)";
+}
+console.log("Outside block, var survives:", blockVar);
+
+// Function scope demo
+function scopeDemo() {
+  var functionVar = "I exist only inside this function (var)";
+  let functionLet = "I exist only inside this function (let)";
+  const functionConst = "I exist only inside this function (const)";
+  console.log("Inside function:", functionVar, "|", functionLet, "|", functionConst);
+}
+scopeDemo();
+// console.log(functionVar);   // ReferenceError if uncommented
+// console.log(functionLet);   // ReferenceError if uncommented
+// console.log(functionConst); // ReferenceError if uncommented
+
+// ===== Section 5: Variable x = 40 =====
+let x = 40;
+console.log("\nSection 5:");
+console.log("x =", x);
+
+// ===== Section 6: Log all values (summary dump) =====
+console.log("\nSection 6: Summary Logging");
+console.log({
+  oldStyle,  // var
+  modern,    // let (reassigned)
+  fixed,     // const (unchanged)
+  blockVar,  // var from a block, visible here
+  x
+});
+
+// ===== Section 7: Identifier names (valid & invalid) =====
+console.log("\nSection 7: Identifier Names");
+
+// Valid identifiers examples:
+let userName = "valid: camelCase";
+let _hiddenValue = "valid: starts with underscore";
+let $cache = "valid: dollar sign allowed";
+let ÜnicodeOk = "valid: unicode letters allowed";
+let αβγ = "valid: greek letters as identifiers";
+let 变量 = "valid: non-Latin unicode letters";
+
+// Invalid identifiers (COMMENTED OUT to avoid syntax errors):
+/*
+let 2cool = "invalid: cannot start with a digit";
+let user-name = "invalid: hyphen not allowed in identifiers";
+let let = "invalid: reserved keyword";
+let class = "invalid: reserved keyword";
+*/
+
+// Log valid identifiers:
+console.log({
+  userName,
+  _hiddenValue,
+  $cache,
+  ÜnicodeOk,
+  αβγ,
+  变量
+});
+
+// ===== Section 8: Notes on hoisting (extra learning) =====
+/*
+  var is hoisted and initialized as undefined. let/const are hoisted but not initialized
+  (Temporal Dead Zone) until their declaration line is executed.
+*/
+console.log("\nSection 8: Hoisting (illustration)");
+console.log("Accessing aVarBeforeDeclare (var) gives:", aVarBeforeDeclare); // undefined due to hoisting
+var aVarBeforeDeclare = "Now assigned";
+// The following would throw ReferenceError if uncommented before declaration due to TDZ:
+// console.log(aLetBeforeDeclare);
+// let aLetBeforeDeclare = "let assigned";
+// console.log(aConstBeforeDeclare);
+// const aConstBeforeDeclare = "const assigned";
